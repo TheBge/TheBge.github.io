@@ -4,6 +4,7 @@ tags: []
 categories: []
 date: 2020-12-25 16:25:00
 ---
+//(I)C++面向对象开发
 //complex class  
 1.带指针的class/不带指针的class  
 2.初始化列表/不使用初始化列表赋值 （头文件与类的声明   
@@ -29,4 +30,34 @@ template method
 4.Delegation + Inheritance   
 Observer  
 Composite
-5.Prototype
+5.Prototype  
+
+//（II）面向对象开发--兼谈对象模型
+1.non-explicit-one-argument ctor  
+转换函数
+关键字 explicit
+2.pointer-like classes  
+share_pointer  
+iterator  
+3.function-like classes  
+仿函数  
+4.namespacce  
+5.class template
+6.function template  
+7.member template  
+8.specialization特化  
+9.模板偏特化  
+10.template template parameter  
+11.C++11新特性  
+12.reference  
+13.Object model
+
+
+
+
+
+
+
+
+
+
