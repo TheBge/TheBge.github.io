@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: https://thebge.github.io/
+url: git@github.com:TheBge/TheBge.github.io.git
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -104,5 +104,5 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/TheBge/TheBge.github.io
+  repo: git@github.com:TheBge/TheBge.github.io.git
   branch: master
