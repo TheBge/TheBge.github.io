@@ -458,9 +458,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>//complex class<br>1.带指针的class/不带指针的class<br>2.初始化列表/不使用初始化列表赋值 （头文件与类的声明<br>构造函数）<br>3.constructor放在private里（参数传递与返回值）<br>singleton<br>4.考虑return by value与return by reference  </p>
+                <p>//(I)C++面向对象开发<br>//complex class<br>1.带指针的class/不带指针的class<br>2.初始化列表/不使用初始化列表赋值 （头文件与类的声明<br>构造函数）<br>3.constructor放在private里（参数传递与返回值）<br>singleton<br>4.考虑return by value与return by reference  </p>
 <p>//string class<br><strong>只要你的类里面带指针，必须有拷贝构造/拷贝赋值。</strong><br>1.调试模式和release模式   </p>
-<p>//Object Oriented Programming, Object Oriented Design (OOP, OOD)<br>Inheritance 继承<br>Composition 复合<br>Delegation 委托<br>1.Composition（组合与继承）<br>Adapter<br>2.pimpl<br>pointer to implementation<br>3.Inheritance with virtual<br>template method<br>4.Delegation + Inheritance<br>Observer<br>Composite<br>5.Prototype</p>
+<p>//Object Oriented Programming, Object Oriented Design (OOP, OOD)<br>Inheritance 继承<br>Composition 复合<br>Delegation 委托<br>1.Composition（组合与继承）<br>Adapter<br>2.pimpl<br>pointer to implementation<br>3.Inheritance with virtual<br>template method<br>4.Delegation + Inheritance<br>Observer<br>Composite<br>5.Prototype  </p>
+<p>//（II）面向对象开发–兼谈对象模型<br>1.non-explicit-one-argument ctor<br>转换函数<br>关键字 explicit<br>2.pointer-like classes<br>share-pointer<br>iterator<br>3.function-like classes<br>仿函数<br>4.namespace<br>5.class template<br>6.function template<br>7.member template<br>8.specialization特化<br>9.模板偏特化<br>10.template template parameter<br>11.C++11新特性<br>12.reference<br>13.Object model<br>14.Vptr &amp; Vtbl<br>虚函数 虚表<br>动态绑定：1通过指针调用 2向上转型 3调用的是虚函数<br>多态：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A *p = <span class="keyword">new</span> B; <span class="comment">//A是父类 B是子类</span></span><br><span class="line">虽然P是一个基类的指针。但是<span class="keyword">new</span> B调用的是派生类B的构造方法，所以构造的是B类对象。先调用A的构造函数，再调用B的构造函数。构造完后会返回B类对象的地址，然后将它赋给一个基类指针P。</span><br></pre></td></tr></table></figure>
+<p>15.const<br>1放在小括号后面大括号前面 修饰成员函数，不改变class的data<br>const也算函数签名的一部分<br>当成员函数的const和non-const版本同时存在的时候，const object只能只会调用const版本，non-const object只能只会调用non-const版本。<br>16.new &amp; delete<br>new 先分配memory，再调用ctor<br>delete 先调用dtor，再释放memory<br>new和delete都是expression，调用的是operator new/operator delete，底层是调用malloc<br>17.重载operator new/operator delete/operator new【】/operator delete【】<br>18.placement new()</p>
 
             </div>
             <hr/>
@@ -486,7 +489,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://thebge.github.io/2020/12/25/%E4%BE%AF%E6%8D%B7C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%80%BB%E7%BB%93/">https://thebge.github.io/2020/12/25/%E4%BE%AF%E6%8D%B7C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%80%BB%E7%BB%93/</a>
+                    <a href="https://github.com/TheBge/TheBge.github.io/2020/12/25/%E4%BE%AF%E6%8D%B7C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%80%BB%E7%BB%93/">https://github.com/TheBge/TheBge.github.io/2020/12/25/%E4%BE%AF%E6%8D%B7C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%80%BB%E7%BB%93/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -689,30 +692,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/12/25/%E4%BE%AF%E6%8D%B7C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%80%BB%E7%BB%93/">
+                <a href="/2020/12/29/%E7%90%86%E8%A7%A3%E5%A4%9A%E6%80%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="侯捷C++ 面向对象 总结">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="理解多态">
                         
-                        <span class="card-title">侯捷C++ 面向对象 总结</span>
+                        <span class="card-title">理解多态</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            //complex class1.带指针的class/不带指针的class2.初始化列表/不使用初始化列表赋值 （头文件与类的声明构造函数）3.constructor放在private里（参数传递与返回值）singleton4.考虑retu
+                            123A* P=new B; //A是父类,B是子类虽然P是一个基类的指针。但是new B调用的是派生类B的构造方法，所以构造的是B类对象。先调用A的构造函数，再调用B的构造函数。构造完后会返回B类对象的地址，然后将它赋给一个基类指针P。
+
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-25
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -721,7 +724,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
