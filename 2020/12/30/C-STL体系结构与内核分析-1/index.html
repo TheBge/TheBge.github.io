@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="理解多态, Hexo">
+    <meta name="keywords" content="C++ STL体系结构与内核分析, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>理解多态 | Hexo</title>
+    <title>C++ STL体系结构与内核分析 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">理解多态</h1>
+                    <h1 class="description center-align post-title">C++ STL体系结构与内核分析</h1>
                 </div>
             </div>
         </div>
@@ -442,7 +442,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-12-29
+                    2020-12-30
                 </div>
                 
 
@@ -458,10 +458,15 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A* P=<span class="keyword">new</span> B; <span class="comment">//A是父类,B是子类</span></span><br><span class="line"></span><br><span class="line">虽然P是一个基类的指针。但是<span class="keyword">new</span> B调用的是派生类B的构造方法，所以构造的是B类对象。先调用A的构造函数，再调用B的构造函数。构造完后会返回B类对象的地址，然后将它赋给一个基类指针P。</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B* q=<span class="keyword">new</span> B;<span class="comment">//这里和上面唯一的区别就是，将B类对象的地址赋给了派生类指针q</span></span><br></pre></td></tr></table></figure>
-<p>   而需要注意的是：可以将一个派生类对象的地址赋给基类指针和派生类指针，而一个基类对象的地址只能赋给基类指针，不能赋给派生类的指针。因为派生类不但拥有基类的方法属性，还有基类没有的属性方法。</p>
-<p>   将一个地址赋给一个指针前，通常会将该地址处的对象类型转换为指针所指的类型。而将一个基类地址赋给一个派生类指针是不允许的，如果可以的话，那么这个指针就可以调用派生类的方法和属性。但指针指向的是一个基类对象，而基类可能并没有这些方法和属性，因为这些方法和属性是派生类新增的，所以，基类地址赋给一个派生类指针是不允许的。但将一个派生类对象的地址赋给一个基类指针是可以的，因为，基类指针能调用的方法和属性，派生类都有，所以并不会有什么问题。</p>
+                <h6 id="STL-六大部件"><a href="#STL-六大部件" class="headerlink" title="STL 六大部件"></a>STL 六大部件</h6><p>容器（Containiers）<br>分配器（Allocators）<br>算法（Alogrithms）<br>迭代器（Iterators）<br>适配器（Adapters）<br>仿函数（Functors）<br><img src="%5Cimages%5Cpasted-8.png%5C" alt="upload successful">  </p>
+<h6 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h6><p>Sequance Containers：<br>Array<br>Vector<br>Deque<br>List<br>Forward List  </p>
+<p>Associative Containers：<br>Set/MultiSet<br>Map/Multimap<br><img src="%5Cimages%5Cpasted-9.png%5C" alt="upload successful">  </p>
+<p>Unordered Containers：<br>Unordered Set/MultiSet<br>Unordered Map/Multimap<br>用hash table实现的<br><img src="%5Cimages%5Cpasted-10.png%5C" alt="upload successful">  </p>
+<h6 id="分配器"><a href="#分配器" class="headerlink" title="分配器"></a>分配器</h6><p>example：  </p>
+<pre><code class="c">template&lt;typename T, typename _Alloc = std::allocator&lt;T&gt;&gt;
+class vector:protected _Vector_base&lt;T, _Alloc&gt;</code></pre>
+<h5 id="OOP-object-oriented-programming-vs-GP-Generic-Programing"><a href="#OOP-object-oriented-programming-vs-GP-Generic-Programing" class="headerlink" title="OOP(object-oriented programming) vs GP(Generic Programing)"></a>OOP(object-oriented programming) vs GP(Generic Programing)</h5><p>OOP将datas与methods关联在一起<br>GP将datas与methods分开<br>使用<strong>GP</strong>：<br>1 Containers/Algorithms团队各司其职，以Iterator沟通<br>2 Algorithms通过Iterators确定操作范围，通过Iterators取用Containers元素<br><img src="%5Cimages%5Cpasted-11.png%5C" alt="upload successful"></p>
+<h5 id="阅读C-标准库，基础"><a href="#阅读C-标准库，基础" class="headerlink" title="阅读C++标准库，基础"></a>阅读C++标准库，基础</h5><p>1 Operator Overloading 操作符重载<br>2 Templates 模板<br>类模板/函数模板/成员模板<br>模板特化/偏特化  </p>
 
             </div>
             <hr/>
@@ -487,7 +492,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/TheBge/TheBge.github.io/2020/12/29/%E7%90%86%E8%A7%A3%E5%A4%9A%E6%80%81/">https://github.com/TheBge/TheBge.github.io/2020/12/29/%E7%90%86%E8%A7%A3%E5%A4%9A%E6%80%81/</a>
+                    <a href="https://github.com/TheBge/TheBge.github.io/2020/12/30/C-STL%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%8E%E5%86%85%E6%A0%B8%E5%88%86%E6%9E%90-1/">https://github.com/TheBge/TheBge.github.io/2020/12/30/C-STL%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%8E%E5%86%85%E6%A0%B8%E5%88%86%E6%9E%90-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -694,20 +699,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/12/30/C-STL%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%8E%E5%86%85%E6%A0%B8%E5%88%86%E6%9E%90-1/">
+                <a href="/2020/12/30/%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="C++ STL体系结构与内核分析">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="枚举类型">
                         
-                        <span class="card-title">C++ STL体系结构与内核分析</span>
+                        <span class="card-title">枚举类型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL 六大部件容器（Containiers）分配器（Allocators）算法（Alogrithms）迭代器（Iterators）适配器（Adapters）仿函数（Functors）  
-容器Sequance Containers：Arr
+                            enum &lt;类型名&gt; {&lt;枚举常量表&gt;};说明：关键字enum——指明其后的标识符是一个枚举类型的名字。枚举常量表——由枚举常量构成。”枚举常量”或称”枚举成员”，是以标识符形式表示的整型量，表示枚举类型的取值。枚举
                         
                     </div>
                     <div class="publish-info">
@@ -732,24 +736,25 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/25/%E4%BE%AF%E6%8D%B7C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%80%BB%E7%BB%93/">
+                <a href="/2020/12/29/%E7%90%86%E8%A7%A3%E5%A4%9A%E6%80%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="侯捷C++ 面向对象 总结">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="理解多态">
                         
-                        <span class="card-title">侯捷C++ 面向对象 总结</span>
+                        <span class="card-title">理解多态</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            //(I)C++面向对象开发//complex class1.带指针的class/不带指针的class2.初始化列表/不使用初始化列表赋值 （头文件与类的声明构造函数）3.constructor放在private里（参数传递与返回值）sin
+                            123A* P=new B; //A是父类,B是子类虽然P是一个基类的指针。但是new B调用的是派生类B的构造方法，所以构造的是B类对象。先调用A的构造函数，再调用B的构造函数。构造完后会返回B类对象的地址，然后将它赋给一个基类指针P。
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-29
                             </span>
                         <span class="publish-author">
                             
