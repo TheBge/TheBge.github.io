@@ -1,7 +1,11 @@
 title: new and delete
 author: John Doe
-date: 2020-12-16 14:11:58
 tags:
+  - C++
+  - 内存管理
+categories:
+  - C++
+date: 2020-12-16 14:11:00
 ---
 ##### 重载new和delete   
 1. operator new（）的返回值是一个void*,而不是指向任何特定类型的指针。所做的是分配内存，而不是完成一个对象建立——直到构造函数调用了才完成了对象的创建，它是编译器确保的动作，不在我们的控制范围之内。   

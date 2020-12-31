@@ -1,6 +1,8 @@
 title: Hello World
-tags: []
-categories: []
+tags:
+  - Hexo
+categories:
+  - Hexo
 author: Bing
 date: 2020-11-07 23:33:00
 ---

@@ -1,7 +1,9 @@
 title: 侯捷C++ 面向对象 总结
 author: Bing
-tags: []
-categories: []
+tags:
+  - C++
+categories:
+  - C++
 date: 2020-12-25 16:25:00
 ---
 //(I)C++面向对象开发

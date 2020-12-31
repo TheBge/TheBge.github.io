@@ -1,7 +1,10 @@
 title: C++ STL体系结构与内核分析
 author: Bing
-tags: []
-categories: []
+tags:
+  - C++
+  - 数据结构
+categories:
+  - C++
 date: 2020-12-30 20:07:00
 ---
 ###### STL 六大部件
@@ -34,7 +37,7 @@ Unordered Map/Multimap
 
 ###### 分配器  
 example：  
-```c  
+```c++  
 template<typename T, typename _Alloc = std::allocator<T>>
 class vector:protected _Vector_base<T, _Alloc>
 ```  
@@ -51,10 +54,4 @@ GP将datas与methods分开
 1 Operator Overloading 操作符重载  
 2 Templates 模板  
 类模板/函数模板/成员模板  
-模板特化/偏特化  
-
-
-
-
-
-
+模板特化/偏特化
