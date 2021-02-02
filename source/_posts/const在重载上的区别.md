@@ -1,5 +1,5 @@
 title: new and delete
-author: John Doe
+author: Bing
 tags:
   - C++
   - 内存管理
