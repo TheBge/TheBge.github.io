@@ -1,0 +1,6 @@
+options:
+  lineNumbers: true
+  imagePath: /images
+  askImageFilename: false
+editor:
+  lineNumbers: true
