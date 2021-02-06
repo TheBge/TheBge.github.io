@@ -13,7 +13,7 @@ GP将datas与methods分开
 使用**GP**：  
 1 Containers/Algorithms团队各司其职，以Iterator沟通  
 2 Algorithms通过Iterators确定操作范围，通过Iterators取用Containers元素  
-![upload successful](\\images\pasted-11.png\)
+![upload successful](/images/pasted-11.png)
 
 ##### 阅读C++标准库，基础  
 1 Operator Overloading 操作符重载  
@@ -28,7 +28,7 @@ GP将datas与methods分开
 迭代器（Iterators）  
 适配器（Adapters）  
 仿函数（Functors）  
-![upload successful](\\images\pasted-8.png\)  
+![upload successful](/images/pasted-8.png)  
 
 ##### 容器  
 Sequance Containers：  
@@ -41,15 +41,15 @@ Forward List
 Associative Containers：  
 Set/MultiSet   
 Map/Multimap    
-![upload successful](\\images\pasted-9.png\)  
+![upload successful](/images/pasted-9.png)  
 
 Unordered Containers：  
 Unordered Set/MultiSet  
 Unordered Map/Multimap  
 用hash table实现的
-![upload successful](\\images\pasted-10.png\) 
+![upload successful](/images/pasted-10.png) 
 
-![upload successful](\\images\pasted-12.png\)
+![upload successful](/images/pasted-12.png)
 
 1 list  
 环状链表，在list的尾端有一空白节点，用以符合STL的前闭后开区间特点。 有iterator。
@@ -89,7 +89,7 @@ class map
 元素个数超过buckets数时进行rehashing，新的buckets数是翻倍后最近邻的素数。
 ##### 迭代器  
 Iterator要遵循的原则。必须有能力回答Algorithms的提问，设计了五种特殊的typedef。  
-![upload successful](\\images\pasted-13.png\)
+![upload successful](/images/pasted-13.png)
 
 Iterator Traits 用于分离class iterator和non-class iterators。（模板的特化）  
 声明一个无法被赋值的变量没有意义，所以即使是const iterator的value_type也不应该加上const，iterator若是const int*, 那value_type是int而不是const int。  
@@ -107,4 +107,4 @@ class vector:protected _Vector_base<T, _Alloc>
 
 ##### 适配器Adapter  
 仿函数适配器
-？bind函数  绑定成员函数时，为什么要加上&  
+？bind函数  绑定成员函数时，为什么要加上&
