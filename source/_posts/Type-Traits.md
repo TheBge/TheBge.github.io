@@ -25,7 +25,7 @@ Type transformations: Classes to obtain new types by applying specific transform
 3.是否存在non-trivial assignment operator  
 4.是否存在non-trivial destructor
 
-``` c++
+``` c
 struct __true_type {
 };
 struct __false_type {

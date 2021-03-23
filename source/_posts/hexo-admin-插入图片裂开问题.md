@@ -11,8 +11,8 @@ date: 2021-02-02 21:54:00
 
 **解决**  
 修改hexo admin插件下的api.js,修改filename。
-```
-    filename = imagePath + "/" + filename    //这里
+``` c++
+    filename = imagePath + "/" + filename    //这里
     var outpath = path.join(hexo.source_dir, filename)
 
     var dataURI = req.body.data.slice('data:image/png;base64,'.length)
