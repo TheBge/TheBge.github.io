@@ -1,7 +1,9 @@
 title: CallBack
 author: Bing
-date: 2021-03-23 17:47:10
 tags:
+  - C++
+categories: []
+date: 2021-03-23 17:47:00
 ---
 ##### 同步和异步
 同步方式：

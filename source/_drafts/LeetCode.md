@@ -1,10 +1,13 @@
 title: LeetCode
 author: Bing
-date: 2021-03-24 21:48:56
 tags:
+  - leetcode
+categories: []
+date: 2021-03-24 21:48:00
 ---
 ###### 141.环形链表
 https://leetcode-cn.com/problems/linked-list-cycle/solution/yi-wen-gao-ding-chang-jian-de-lian-biao-wen-ti-h-2/#comment  
+
 相爱相杀好基友——数组与链表
 作为线性表的两种存储方式 —— 链表和数组，这对相爱相杀的好基友有着各自的优缺点。接下来，我们梳理一下这两种方式。
 
@@ -36,11 +39,10 @@ https://leetcode-cn.com/problems/linked-list-cycle/solution/yi-wen-gao-ding-chan
 释放 q 结点的内存。
 
 链表的主要代码
-
+```c++
 #include <bits/stdc++.h>
 
 using namespace std;
-
 //定义一个结点模板
 template<typename T>
 struct Node {
@@ -77,7 +79,7 @@ void Walk(Node<T> *p, const V &vistor) {
 		p = p->next;
 	}
 }
-
+  
 int main() {
 	auto p = new Node<int>(1);
 	Insert(p, 2);
@@ -90,15 +92,14 @@ int main() {
 	cout << sum << endl;
 	return 0;
 }
+```
 面试问题总结
 无法高效获取长度，无法根据偏移快速访问元素，是链表的两个劣势。然而面试的时候经常碰见诸如获取倒数第k个元素，获取中间位置的元素，判断链表是否存在环，判断环的长度等和长度与位置有关的问题。这些问题都可以通过灵活运用双指针来解决。
 
 Tips：双指针并不是固定的公式，而是一种思维方式~
 
 先来看"倒数第k个元素的问题"。设有两个指针 p 和 q，初始时均指向头结点。首先，先让 p 沿着 next 移动 k 次。此时，p 指向第 k+1个结点，q 指向头节点，两个指针的距离为 k 。然后，同时移动 p 和 q，直到 p 指向空，此时 q 即指向倒数第 k 个结点。可以参考下图来理解：
-
-
-
+```c++
 class Solution {
 public:
     ListNode* getKthFromEnd(ListNode* head, int k) {
@@ -113,11 +114,12 @@ public:
         return q;
     }
 };
+```
 获取中间元素的问题。设有两个指针 fast 和 slow，初始时指向头节点。每次移动时，fast向后走两次，slow向后走一次，直到 fast 无法向后走两次。这使得在每轮移动之后。fast 和 slow 的距离就会增加一。设链表有 n 个元素，那么最多移动 n/2 轮。当 n 为奇数时，slow 恰好指向中间结点，当 n 为 偶数时，slow 恰好指向中间两个结点的靠前一个(可以考虑下如何使其指向后一个结点呢？)。
 
 下述代码实现了 n 为偶数时慢指针指向靠后结点。
 
-
+```c++
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
@@ -129,6 +131,7 @@ public:
         return p;
     } 
 };
+```
 是否存在环的问题。如果将尾结点的 next 指针指向其他任意一个结点，那么链表就存在了一个环。
 
 上一部分中，总结快慢指针的特性 —— 每轮移动之后两者的距离会加一。下面会继续用该特性解决环的问题。
@@ -136,7 +139,7 @@ public:
 
 根据上述表述得出，如果一个链表存在环，那么快慢指针必然会相遇。实现代码如下：
 
-
+```c++
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
@@ -155,9 +158,52 @@ public:
         return nullptr;
     }
 };
+```
 最后一个问题，如果存在环，如何判断环的长度呢？方法是，快慢指针相遇后继续移动，直到第二次相遇。两次相遇间的移动次数即为环的长度。
 
-作者：Time-Limit
-链接：https://leetcode-cn.com/problems/linked-list-cycle/solution/yi-wen-gao-ding-chang-jian-de-lian-biao-wen-ti-h-2/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+###### 剑指offer41.数据流中的中位数（优先队列 / 堆）
+如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。  
+
+实现：  
+1.每插入一个数之前，先判断两个堆的 size() 是否相等。
+2.若相等，先将这个数插入大顶堆，然后将大顶堆的 top() 插入小顶堆。这么做可以保证小顶堆的所有数永远大于等于大顶堆的 top()。  
+3.若不相等，先将这个数插入小顶堆，然后将小顶堆的 top() 插入大顶堆。这么做可以保证大顶堆的所有数永远小于等于小顶堆的 top()。  
+```c++
+class MedianFinder 
+{
+    public:
+        /** initialize your data structure here. */
+        
+        priority_queue<int, vector<int>, less<int> > maxheap;
+        priority_queue<int, vector<int>, greater<int> > minheap;
+
+        MedianFinder() {}
+        
+        void addNum(int num) 
+        {
+            if(maxheap.size() == minheap.size()) 
+            {
+                maxheap.push(num);
+                minheap.push(maxheap.top());
+                maxheap.pop();
+            }
+            else 
+            {
+                minheap.push(num);
+                maxheap.push(minheap.top());
+                minheap.pop();
+            }
+        }
+        
+        double findMedian() 
+        {
+            int maxSize = maxheap.size(), minSize = minheap.size();
+            int mid1 = maxheap.top(), mid2 = minheap.top();
+            return maxSize == minSize ? ((mid1 + mid2) * 0.5) : mid2;
+        }
+};
+```
+队列：先进先出  
+优先队列：  
+1.最大优先队列，无论入队顺序，当前最大的元素优先出队。  
+2.最小优先队列，无论入队顺序，当前最小的元素优先出队。  
