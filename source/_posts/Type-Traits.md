@@ -5,11 +5,11 @@ tags:
 categories: []
 date: 2021-02-05 20:58:00
 ---
-萃取机？  
+萃取机
 具体的来说，traits就是通过定义一些结构体或类，并利用模板类特化和偏特化的能力，给类型赋予一些特性，这些特性根据类型的不同而异。在程序设计中可以使用这些traits来判断一个类型的一些特性，引发C++的函数重载机制，实现同一种操作因类型不同而异的效果。
 
-cplusplus：  
-<type_traits>  
+cplusplus： 
+<type_traits> 
 This header defines a series of classes to obtain type information on compile-time.
 The header contains:
 Helper classes: Standard classes to assist in creating compile-time constants.
@@ -18,11 +18,11 @@ Type transformations: Classes to obtain new types by applying specific transform
 
 感觉就是用traits来问到各种各样的type  
 
-例：  
-现在定义一个type_traits可以获得类型的如下属性：  
-1.是否存在non-trivial default constructor  
-2.是否存在non-trivial copy constructor   
-3.是否存在non-trivial assignment operator  
+例：
+现在定义一个type_traits可以获得类型的如下属性：
+1.是否存在non-trivial default constructor
+2.是否存在non-trivial copy constructor 
+3.是否存在non-trivial assignment operator
 4.是否存在non-trivial destructor
 
 ``` c
@@ -69,7 +69,7 @@ struct __type_traits<_Tp*> {
    typedef __true_type    has_trivial_destructor;
    typedef __true_type    is_POD_type;
 };
-```  
+```
 
 特化版本，比如自定义类型  
 ``` c++

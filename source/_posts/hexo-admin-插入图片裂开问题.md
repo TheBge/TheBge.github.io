@@ -5,12 +5,13 @@ tags:
 categories: []
 date: 2021-02-02 21:54:00
 ---
-使用hexo admin截图复制下来的图片都会变成下面这样  
-![upload successful]（路径）  
+使用hexo admin截图复制下来的图片都会变成下面这样 
+![upload successful](路径) 
 粘贴的图片路径都是\，从\改成/就好了,Settings里面可以设置的路径是存放的路径，直接粘贴复制的图片会存在source下的images文件夹，Setting里路径是/images，但是复制的图片后引用的是\\images\blablabla...每次都这么改有点麻烦，所以这里要去改一下粘贴图片时添加的路径。  
 
-**解决**  
+**解决** 
 修改hexo admin插件下的api.js,修改filename。
+
 ``` c++
     filename = imagePath + "/" + filename    //这里
     var outpath = path.join(hexo.source_dir, filename)

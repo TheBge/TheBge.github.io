@@ -1,4 +1,4 @@
-title: C++ STL体系结构与内核分析
+title: 侯捷C++ STL体系结构与内核分析
 author: Bing
 tags:
   - C++

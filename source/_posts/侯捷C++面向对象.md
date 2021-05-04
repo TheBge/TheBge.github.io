@@ -1,4 +1,4 @@
-title: 侯捷C++ 面向对象 总结
+title: 侯捷C++ 面向对象
 author: Bing
 tags:
   - C++
