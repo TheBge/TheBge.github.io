@@ -1,8 +1,11 @@
 # TheBge.github.io
 
-一个应该放随笔、日记的地方，不要再往里面“倒垃圾”啦喂(#`O′)😂。知识点整理都迁移到mkdocs的wiki上去。
+一个基于hexo的blog😉
 
-基于hexo的bolg
 主题：Yun （Yunyoujun.cn）
 
-后续等安定下来了学点前端知识再自己DIY吧
+主文件与生成的网页文件用分支分开存放，这样在不同电脑上修改只需要clone主分支
+
+主要命令：
+hexo serve 启动hexo服务
+hexo g -d 生成文件并上传
